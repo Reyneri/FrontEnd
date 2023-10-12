@@ -24,7 +24,7 @@
   {
     "id": 3,
     "title": "Restaurant Sushisen - Londres",
-    "imageUrl": "assets/images/abajour-tahina.png",
+    "imageUrl": "assets/images/restaurant-sushisen-londres.png",
     "categoryId": 3,
     "userId": 1,
     "category": {
@@ -35,7 +35,7 @@
   {
     "id": 4,
     "title": "Villa “La Balisiere” - Port Louis",
-    "imageUrl": "assets/images/abajour-tahina.png",
+    "imageUrl": "assets/images/la-balisiere.png",
     "categoryId": 2,
     "userId": 1,
     "category": {
@@ -46,7 +46,7 @@
   {
     "id": 5,
     "title": "Structures Thermopolis",
-    "imageUrl": "assets/images/abajour-tahina.png",
+    "imageUrl": "assets/images/structures-thermopolis.png",
     "categoryId": 1,
     "userId": 1,
     "category": {
@@ -57,7 +57,7 @@
   {
     "id": 6,
     "title": "Appartement Paris X",
-    "imageUrl": "assets/images/abajour-tahina.png",
+    "imageUrl": "assets/images/appartement-paris-x.png",
     "categoryId": 2,
     "userId": 1,
     "category": {
@@ -68,7 +68,7 @@
   {
     "id": 7,
     "title": "Pavillon “Le coteau” - Cassis",
-    "imageUrl": "assets/images/abajour-tahina.png",
+    "imageUrl": "assets/images/le-coteau-cassis.png",
     "categoryId": 2,
     "userId": 1,
     "category": {
@@ -79,7 +79,7 @@
   {
     "id": 8,
     "title": "Villa Ferneze - Isola d’Elba",
-    "imageUrl": "assets/images/abajour-tahina.png",
+    "imageUrl": "assets/images/villa-ferneze.png",
     "categoryId": 2,
     "userId": 1,
     "category": {
@@ -90,7 +90,7 @@
   {
     "id": 9,
     "title": "Appartement Paris XVIII",
-    "imageUrl": "assets/images/abajour-tahina.png",
+    "imageUrl": "assets/images/appartement-paris-xviii.png",
     "categoryId": 2,
     "userId": 1,
     "category": {
@@ -101,7 +101,7 @@
   {
     "id": 10,
     "title": "Bar “Lullaby” - Paris",
-    "imageUrl": "assets/images/abajour-tahina.png",
+    "imageUrl": "assets/images/bar-lullaby-paris.png",
     "categoryId": 3,
     "userId": 1,
     "category": {
@@ -112,7 +112,7 @@
   {
     "id": 11,
     "title": "Hotel First Arte - New Delhi",
-    "imageUrl": "assets/images/abajour-tahina.png",
+    "imageUrl": "assets/images/hotel-first-arte-new-delhi.png",
     "categoryId": 3,
     "userId": 1,
     "category": {
