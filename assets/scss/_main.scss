@@ -1,0 +1,144 @@
+// General variables
+$main-font: 'Work Sans';
+$main-color: #B1663C;
+$second-font: 'Syne';
+$second-color: #1D6154;
+
+body {
+  max-width: 1140px;
+  margin: auto;
+  font-family: $main-font;
+  font-size: 14px;
+}
+
+header, section {
+  margin: 50px 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+h1, h2 {
+  font-family: $second-font;
+  font-weight: 800;
+  color: $main-color;
+  
+  & > span {
+    font-family: $main-font;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 30px;
+  color: $second-color;
+}
+
+nav {
+  ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+  }
+
+  li {
+    padding: 0 10px;
+    font-size: 1.2em;
+
+    &:hover {
+      color: $main-color;
+    }
+  }
+}
+
+#introduction {
+  display: flex;
+  align-items: center;
+
+  figure, article {
+    flex: 1;
+  }
+
+  img {
+    display: block;
+    margin: auto;
+    width: 80%;
+  }
+
+  h2, p {
+    margin-bottom: 1em;
+  }
+}
+
+#portfolio {
+  h2 {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  .gallery {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+#contact {
+  width: 50%;
+  margin: auto;
+
+  > * {
+    text-align: center;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  form {
+    text-align: left;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  input, textarea {
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  }
+
+  label {
+    margin: 2em 0 1em 0;
+  }
+
+  input[type="submit"] {
+    font-family: $second-font;
+    font-weight: 700;
+    color: white;
+    background-color: $second-color;
+    margin: 2em auto;
+    width: 180px;
+    text-align: center;
+    border-radius: 60px;
+  }
+}
+
+footer {
+  nav {
+    ul {
+      display: flex;
+      justify-content: flex-end;
+      margin: 2em;
+    }
+  }
+}
