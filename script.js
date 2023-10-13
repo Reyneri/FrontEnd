@@ -1,8 +1,12 @@
-
+document.querySelector('.Tous_btn').addEventListener('click',async function() {
+    const  allWorks = await getAllWorks() ;
+    await init(allWorks);
+    updateSelectedButton(this);
+});
 
 
 async function getAllWorks() {
-    const reponse = await fetch ('works.json');
+    const reponse = await fetch ('http://localhost:5678/api/works');
     const data = await reponse.json();
     return data;
 }
@@ -43,6 +47,7 @@ document.querySelector('.Objets_btn').addEventListener('click', async function()
     const allWorks = await getAllWorks();
     const filteredWorks = allWorks.filter(work => work.categoryId === 1);
     await init(filteredWorks);
+    updateSelectedButton(this);
 });
 
 
@@ -50,6 +55,7 @@ document.querySelector('.Appartements_btn').addEventListener('click', async func
     const allWorks = await getAllWorks();
     const filteredWorks = allWorks.filter(work => work.categoryId === 2);
     await init(filteredWorks);
+    updateSelectedButton(this);
 });
 
 
@@ -57,6 +63,17 @@ document.querySelector('.Hotels-restaurants_btn').addEventListener('click', asyn
     const allWorks = await getAllWorks();
     const filteredWorks = allWorks.filter(work => work.categoryId === 3);
     await init(filteredWorks);
+    updateSelectedButton(this);
 });
 
+
+// changement de la couleur du bouton
+
+function updateSelectedButton(selectedButton) {
+    const buttons = document.querySelectorAll('.projets-btn button');
+    buttons.forEach(button => {
+        button.classList.remove('selected');
+    });
+    selectedButton.classList.add('selected');
+}
 

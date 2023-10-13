@@ -75,22 +75,68 @@ nav {
 }
 
 #portfolio {
-  h2 {
-    text-align: center;
-    margin-bottom: 1em;
-  }
+	h2 {
+	text-align: center;
+	margin-bottom: 1em;
+	margin-top: 139px;
+	}
+	.projets-btn{
+		display: flex;
+		gap: 20px;
+		margin: 51px;
+		justify-content: center;
+		button {
+			display: block;
+			font-family: 'Syne';
+			font-weight: 700;
+			height: 37px;
+			min-width: 80px;
+			color: #1D6154;
+			width: auto;
+			text-align: center;
+			border : 1px solid #1D6154;
+			border-radius: 60px ;
+			background-color: #FFFEF8;
+		}
+		.selected{
+			background-color: #1D6154;
+			color: #FFFEF8;
+		}
+	}
+	.modify {
+		display: none;
+		justify-content: center;
+		align-items: center;
+		margin-top: 139px;
+		gap: 31px;
+		h2{
+			margin: 0;
+		}
+		button {
+			display: inline-flex;
+			align-items: center;
+			gap: 10px;
+			background-color: #FFFEF8;
+			width: 84px;
+			border: none;
+			font-size: 15px;
+			color: #1D6154;
+			cursor: pointer;
+		}
+	}
+}
+.gallery {
+	width: 90%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+	margin: 50px;
+}
 
-  .gallery {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
+.gallery img {
+	width: 100%;
 
-    img {
-      width: 100%;
-    }
-  }
 }
 
 #contact {
