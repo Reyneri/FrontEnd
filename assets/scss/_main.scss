@@ -3,12 +3,13 @@ $main-font: 'Work Sans';
 $main-color: #B1663C;
 $second-font: 'Syne';
 $second-color: #1D6154;
-
+$bg-color : #FFFEF8; ;
 body {
   max-width: 1140px;
   margin: auto;
   font-family: $main-font;
   font-size: 14px;
+  background: $bg-color;
 }
 
 header, section {

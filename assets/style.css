@@ -53,6 +53,7 @@ body {
   margin: auto;
   font-family: "Work Sans";
   font-size: 14px;
+  background: #FFFEF8;
 }
 
 header, section {
@@ -211,4 +212,55 @@ footer nav ul {
   display: flex;
   justify-content: flex-end;
   margin: 2em;
+}
+
+body, html {
+  height: 100%;
+}
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Work Sans";
+  background-color: #FFFEF8;
+}
+
+.login {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login h2 {
+  font-family: "Syne";
+  color: #1D6154;
+}
+.login p {
+  margin-bottom: 7px;
+}
+.login .login-email, .login .login-password, .login input[type=submit] {
+  height: 51px;
+  width: 379px;
+  margin-bottom: 52px;
+  font-size: 1.2em;
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+.login input[type=submit] {
+  background-color: #1D6154;
+  color: white;
+  cursor: pointer;
+}
+.login a {
+  color: #B1663C;
+}
+
+footer {
+  background-color: white;
+  color: #000000;
+  text-align: center;
+  padding: 20px 0;
 }/*# sourceMappingURL=style.css.map */
