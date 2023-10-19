@@ -17,7 +17,7 @@
 </head>
 <body>
 	<div id="edit-overlay" class="edit-overlay">
-		<span class="overlay-text"><i class="fas fa-edit"></i> Mode Édition</span>
+		<span class="overlay-text"><button class="style_button-overlay"><i class="fas fa-edit"></i></button> <button class="style_button-overlay">Mode Édition</button></span>
 	  </div>
 
 	  <div class="modal-container">
@@ -25,10 +25,43 @@
         <div class="modal">
             <button class="close-modal modal-trigger">x</button>
             <h3>Galerie photo</h3>
-            <div class="tri-photos">ensemble de photos</div>
+            <!-- <div class="tri-photos">ensemble de photos</div> -->
+			<div class="tri-photos">
+				
+			  </div>
             <input type="submit" value="Ajouter une photo" class="input-modal modal-trigger-ajout">
             <a href="">Supprimer la galerie</a>
         </div>
+	</div>
+
+	<div class="modal-container-ajout">
+        <div class="overlay modal-trigger-ajout"></div>
+        <div class="modal">
+            <button class="close-modal modal-trigger-ajout">x</button>
+            <button class="row-modal"><img src="../assets/icons/arrow-left.png" alt=""></button>
+            <h3>Ajout photo</h3>
+            <div class="ajout-photo">
+                <img src="../assets/icons/icone-photo.jpg">
+                <input type="file" id="inputPhoto" style="display: none">
+                <button id="ajouterPhotoBtn">+ Ajouter une photo</button>
+                <p>jpg, png : 4mo max</p>
+            </div>
+            <form action="#" method="post">
+                <label for="name">Titre</label>
+                <input type="text" name="name" id="name" class="input-photo">
+                <label for="categorieSelect">Catégorie</label>
+                <select id="categorieSelect" class="input-photo">
+                    <option value=""></option>
+                    <option value="tous">Tous</option>
+                    <option value="objets">Objets</option>
+                    <option value="appartements">Appartements</option>
+                    <option value="hotels-restaurants">Hôtels & restaurants</option>
+                </select>
+            </form>
+            <input type="submit" value="Valider" class="input-modal">
+        </div>
+    </div>
+	 
 <header>
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 	<nav>
