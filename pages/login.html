@@ -9,10 +9,14 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="/assets/style.css">
-	<!-- <script src="api.js" defer></script>
-    <script src="connect.js" defer ></script> -->
-	
+	<script src="../api.js" defer></script>
+    <script src="../connect.js" defer ></script>
+	<script type="module" src="../script.js" defer></script>
 </head>
+<div id="edit-overlay" class="edit-overlay">
+	<span class="overlay-text"><button class="style_button-overlay"><i class="fas fa-edit"></i></button> <button class="style_button-overlay">Mode Édition</button></span>
+  </div>
+
 <body class="login-page">
     <!-- class="login-page" -->
 	<header>
@@ -21,14 +25,14 @@
             <ul>
                 <li class="liste-header" ><a href="/index.html">projets</a></li>
                     <li class="liste-header" id="contact-btn"><a href="/index.html#contact" >contact</a></li>
-                    
-                    <li class="liste-header logout-btn"><a>logout</a></li>
+                    <li class="liste-header login-btn"><a href="#pages-login">login</a></li>
                     <li class="liste-header"><img src="/assets/icons/instagram.png" alt="Instagram" class="instagram"></li>
             </ul>
         </nav>
     </header>
 	<main>
-		<div class="login">
+		
+		<form class="login" id="pages-login">
 			<h2>Log In</h2>
 			<div>
 				<p>E-mail</p>
@@ -36,11 +40,11 @@
 			</div>
 			<div>
 				<p>Mot de passe</p>
-				<input class="login-password" type="password">
+				<input class="login-password" type="password" id="password-login">
 			</div>
 			<input type="submit" value="Se connecter"></input>
 			<a href="">Mot de passe oublié</a>
-		</div>
+		</form>
 	</main>
 	<footer>
 		<nav>

@@ -8,12 +8,56 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
-	<link rel="stylesheet" href="./assets/style.css">
+	<link rel="stylesheet" href="/assets/scss/style.css">
 	<script src="api.js" defer></script>
-	
+	<script type="module" src="script.js" defer></script>
 
 </head>
 <body>
+	<div id="edit-overlay" class="edit-overlay">
+		<span class="overlay-text"><button class="style_button-overlay"><i class="fas fa-edit"></i></button> <button class="style_button-overlay">Mode Édition</button></span>
+	  </div>
+
+	<div class="modal-container">
+        <div class="overlay modal-trigger"></div>
+        <div class="modal">
+            <button class="close-modal modal-trigger">x</button>
+            <h3>Galerie photo</h3>
+            <div class="tri-photos">ensemble de photos</div>
+			
+            <input type="submit" value="Ajouter une photo" class="input-modal modal-trigger-ajout">
+            <a href="">Supprimer la galerie</a>
+        </div>
+	</div>	
+	<div class="modal-container-ajout">
+        <div class="overlay modal-trigger-ajout"></div>
+        <div class="modal">
+            <button class="close-modal modal-trigger-ajout">x</button>
+            <button class="row-modal"><img src="../assets/icons/arrow-left.png" alt=""></button>
+            <h3>Ajout photo</h3>
+            <div class="ajout-photo">
+                <img src="../assets/icons/icone-photo.jpg">
+                <input type="file" id="inputPhoto" style="display: none">
+                <button id="ajouterPhotoBtn">+ Ajouter une photo</button>
+                <p>jpg, png : 4mo max</p>
+            </div>
+            <form action="#" method="post">
+                <label for="name">Titre</label>
+                <input type="text" name="name" id="name" class="input-photo">
+                <label for="categorieSelect">Catégorie</label>
+                <select id="categorieSelect" class="input-photo">
+                    <option value=""></option>
+                    <option value="tous">Tous</option>
+                    <option value="objets">Objets</option>
+                    <option value="appartements">Appartements</option>
+                    <option value="hotels-restaurants">Hôtels & restaurants</option>
+                </select>
+            </form>
+            <input type="submit" value="Valider" class="input-modal">
+        </div>
+    </div>
+
+
 <header>
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 	<nav>
@@ -21,11 +65,14 @@
 			<li class="liste-header" id="portfolio"><a href="#portfolio">projets</a></li>
 				<li class="liste-header" id="contact-btn">contact</li>
 				<li class="liste-header login-btn"><a href="pages/login.html">login</a></li>
-				<li class="liste-header logout-btn"><a>logout</a></li>
+	
 				<li class="liste-header"><img src="/assets/icons/instagram.png" alt="Instagram" class="instagram"></li>
 		</ul>
 	</nav>
 </header>
+
+
+
 <main>
 	<section id="introduction">
 		<figure>
@@ -118,6 +165,6 @@
 		</ul>
 	</nav>
 </footer>
-<script type="module" src="script.js" defer></script>
+
 </body>
 </html>

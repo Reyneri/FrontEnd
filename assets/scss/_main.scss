@@ -1,3 +1,4 @@
+// STYLE DE BASE /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // General variables
 $main-font: 'Work Sans';
 $main-color: #B1663C;
@@ -180,12 +181,4 @@ nav {
   }
 }
 
-footer {
-  nav {
-    ul {
-      display: flex;
-      justify-content: flex-end;
-      margin: 2em;
-    }
-  }
-}
+
