@@ -1,9 +1,18 @@
+$main-font: 'Work Sans';
+$main-color: #B1663C;
+$second-font: 'Syne';
+$second-color: #1D6154;
+$bg-color : #FFFEF8; ;
+
+footer nav ul {
+	display: flex;
+	justify-content: flex-end;
+	margin: 2em
+}
+
 footer {
-    nav {
-      ul {
-        display: flex;
-        justify-content: flex-end;
-        margin: 2em;
-      }
-    }
-  }
+  background-color: $bg-color;
+  color: #000000;
+  text-align: center;
+width: 100%;
+}

@@ -1,49 +1,51 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
 	<meta charset="UTF-8">
-	<title>Sophie Bluel - Architecte d'intérieur</title>
+	<title>LOGIN - Sophie Bluel - Architecte d'intérieur</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
+		rel="stylesheet">
 	<meta name="description" content="">
-	<link rel="stylesheet" href="/assets/style.css">
-	<script src="../api.js" defer></script>
-    <script src="../connect.js" defer ></script>
-	<script type="module" src="../script.js" defer></script>
+	<link rel="stylesheet" href="../assets/scss/style.css">
+	<script src="../assets/js/api.js" defer></script>
+	<script scr="../assets/js/connect.js" defer></script>
+	<script src="../assets/js/login.js" defer></script>
+
+	<script src="https://kit.fontawesome.com/58fb884d9c.js" crossorigin="anonymous"></script>
 </head>
-<div id="edit-overlay" class="edit-overlay">
-	<span class="overlay-text"><button class="style_button-overlay"><i class="fas fa-edit"></i></button> <button class="style_button-overlay">Mode Édition</button></span>
-  </div>
+
 
 <body class="login-page">
-    <!-- class="login-page" -->
+	<!-- class="login-page" -->
 	<header>
-        <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
-        <nav>
-            <ul>
-                <li class="liste-header" ><a href="/index.html">projets</a></li>
-                    <li class="liste-header" id="contact-btn"><a href="/index.html#contact" >contact</a></li>
-                    <li class="liste-header login-btn"><a href="#pages-login">login</a></li>
-                    <li class="liste-header"><img src="/assets/icons/instagram.png" alt="Instagram" class="instagram"></li>
-            </ul>
-        </nav>
-    </header>
+		<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+		<nav>
+			<ul>
+				<li class="liste-header"><a href="/index.html">projets</a></li>
+				<li class="liste-header" id="contact-btn"><a href="/index.html#contact">contact</a></li>
+				<li class="liste-header login-btn"><a href="#pages-login">login</a></li>
+				<li class="liste-header"><img src="/assets/icons/instagram.png" alt="Instagram" class="instagram"></li>
+			</ul>
+		</nav>
+	</header>
 	<main>
-		
+
 		<form class="login" id="pages-login">
 			<h2>Log In</h2>
 			<div>
 				<p>E-mail</p>
-				<input class="login-email" type="email" id="email-login">
+				<input class="login-email" type="email" id="email-login" required>
 			</div>
 			<div>
 				<p>Mot de passe</p>
-				<input class="login-password" type="password" id="password-login">
+				<input class="login-password" type="password" id="password-login" required>
 			</div>
-			<input type="submit" value="Se connecter"></input>
-			<a href="">Mot de passe oublié</a>
+			<input type="submit" value="Se connecter">
+			<a href="#">Mot de passe oublié</a>
 		</form>
 	</main>
 	<footer>
@@ -53,6 +55,7 @@
 			</ul>
 		</nav>
 	</footer>
-	
+
 </body>
+
 </html>

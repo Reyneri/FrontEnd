@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Sophie Bluel - Architecte d'intérieur</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
+		rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="/assets/scss/style.css">
-	<script src="api.js" defer></script>
-	<script type="module" src="script.js" defer></script>
 
+	<script src="assets/js/api.js" defer></script>
+	<script src="assets/js/connect.js" defer></script>
+	<script src="assets/js/script.js" defer></script>
+	<script src="https://kit.fontawesome.com/58fb884d9c.js" crossorigin="anonymous"></script>
 </head>
-<body>
-	<div id="edit-overlay" class="edit-overlay">
-		<span class="overlay-text"><button class="style_button-overlay"><i class="fas fa-edit"></i></button> <button class="style_button-overlay">Mode Édition</button></span>
-	  </div>
 
-	<div class="modal-container">
+<body>
+	<!-- // BARRE D'EDITION ET MODE ADMIN ////////////////////////////////////////////////////////////// -->
+	<div id="edit-overlay-admin" class="edit-overlay-admin hidden">
+		<span class="overlay-text">
+			<button class="style_button-overlay hidden"><i class="fas fa-edit"></i></button>
+			<button class="style_button-overlay">Mode Édition</button></span>
+	</div>
+
+	<!-- / MODAL MODIFICATION ET SUPPR PROJET//////////////////////////////////////////////////////////   -->
+	<!-- <div class="modal-container">
         <div class="overlay modal-trigger"></div>
         <div class="modal">
             <button class="close-modal modal-trigger">x</button>
@@ -28,7 +37,9 @@
             <input type="submit" value="Ajouter une photo" class="input-modal modal-trigger-ajout">
             <a href="">Supprimer la galerie</a>
         </div>
-	</div>	
+	</div>	 -->
+
+	<!-- 
 	<div class="modal-container-ajout">
         <div class="overlay modal-trigger-ajout"></div>
         <div class="modal">
@@ -56,48 +67,56 @@
             <input type="submit" value="Valider" class="input-modal">
         </div>
     </div>
+ -->
 
-
-<header>
-	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
-	<nav>
-		<ul>
-			<li class="liste-header" id="portfolio"><a href="#portfolio">projets</a></li>
+	<header>
+		<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+		<nav>
+			<ul>
+				<li class="liste-header" id="portfolio"><a href="#portfolio">projets</a></li>
 				<li class="liste-header" id="contact-btn">contact</li>
 				<li class="liste-header login-btn"><a href="pages/login.html">login</a></li>
-	
+				<li class="liste-header logout-btn hidden"><a href="index.html">logout</a></li>
 				<li class="liste-header"><img src="/assets/icons/instagram.png" alt="Instagram" class="instagram"></li>
-		</ul>
-	</nav>
-</header>
+			</ul>
+		</nav>
+	</header>
 
+	<main>
+		<section id="introduction">
+			<figure>
+				<img src="./assets/images/sophie-bluel.png" alt="">
+			</figure>
+			<article>
+				<h2>Designer d'espace</h2>
+				<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison
+					finale du chantier.</p>
+				<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les
+					couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du
+					chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
+				<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG,
+					décorateur(trice)</p>
+			</article>
+		</section>
+		<section id="portfolio">
+			<div class="titleProjet ">
+				<div class="modify hidden">
+					<h2>Mes projets</h2>
+					<button class="modal-btn modal-trigger"><i class="fa-solid fa-pen-to-square"></i>modifier</button>
+				</div>
 
-
-<main>
-	<section id="introduction">
-		<figure>
-			<img src="./assets/images/sophie-bluel.png" alt="">
-		</figure>
-		<article>
-			<h2>Designer d'espace</h2>
-			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
-			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
-			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
-		</article>
-	</section>
-	<section id="portfolio">
-		<div class="titleProjet">
-			<h2>Mes projets</h2>
-			<div class="projets-btn">
-				<button class="Tous_btn selected">Tous</button>
-				<button class="Objets_btn">Objets</button>
-				<button class="Appartements_btn">Appartements</button>
-				<button class="Hotels-restaurants_btn">Hôtels & restaurants</button>
+				<h2>Mes projets</h2>
+				
+				<div class="projets-btn">
+					<button class="Tous_btn selected">Tous</button>
+					<button class="Objets_btn">Objets</button>
+					<button class="Appartements_btn">Appartements</button>
+					<button class="Hotels-restaurants_btn">Hôtels & restaurants</button>
+				</div>
 			</div>
-		</div>
 
-		<div class="gallery">
-			<!-- <figure>
+			<div class="gallery">
+				<!-- <figure>
 				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
 				<figcaption>Abajour Tahina</figcaption>
 			</figure>
@@ -142,29 +161,30 @@
 				<figcaption>Hotel First Arte - New Delhi</figcaption>
 			</figure>
 		</div> -->
-	</section>
-	<section id="contact">
-		<h2>Contact</h2>
-		<p>Vous avez un projet ? Discutons-en !</p>
-		<form action="#" method="post">
-			<label for="name">Nom</label>
-			<input type="text" name="name" id="name">
-			<label for="email">Email</label>
-			<input type="email" name="email" id="email">
-			<label for="message">Message</label>
-			<textarea name="message" id="message" cols="30" rows="10"></textarea>
-			<input type="submit" value="Envoyer">
-		</form>
-	</section>
-</main>
+		</section>
+		<section id="contact">
+			<h2>Contact</h2>
+			<p>Vous avez un projet ? Discutons-en !</p>
+			<form action="#" method="post">
+				<label for="name">Nom</label>
+				<input type="text" name="name" id="name">
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email">
+				<label for="message">Message</label>
+				<textarea name="message" id="message" cols="30" rows="10"></textarea>
+				<input type="submit" value="Envoyer">
+			</form>
+		</section>
+	</main>
 
-<footer>
-	<nav>
-		<ul>
-			<li>Mentions Légales</li>
-		</ul>
-	</nav>
-</footer>
+	<footer>
+		<nav>
+			<ul>
+				<li>Mentions Légales</li>
+			</ul>
+		</nav>
+	</footer>
 
 </body>
+
 </html>

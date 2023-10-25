@@ -1,10 +1,12 @@
-// STYLE DE BASE /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// STYLE DE BASE ///////////////////////////////////////////////////////////
 // General variables
 $main-font: 'Work Sans';
 $main-color: #B1663C;
 $second-font: 'Syne';
 $second-color: #1D6154;
 $bg-color : #FFFEF8; ;
+
+
 body {
   max-width: 1140px;
   margin: auto;
@@ -13,13 +15,9 @@ body {
   background: $bg-color;
 }
 
-header, section {
-  margin: 50px 0;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
+section {
+  display: block;
+	margin: 70px 0;
 }
 
 h1, h2 {
@@ -40,22 +38,7 @@ h2 {
   color: $second-color;
 }
 
-nav {
-  ul {
-    display: flex;
-    align-items: center;
-    list-style-type: none;
-  }
 
-  li {
-    padding: 0 10px;
-    font-size: 1.2em;
-
-    &:hover {
-      color: $main-color;
-    }
-  }
-}
 
 #introduction {
   display: flex;
@@ -105,28 +88,7 @@ nav {
 			color: #FFFEF8;
 		}
 	}
-	.modify {
-		display: none;
-		justify-content: center;
-		align-items: center;
-		margin-top: 139px;
-		gap: 31px;
-		h2{
-			margin: 0;
-		}
-		button {
-			display: inline-flex;
-			align-items: center;
-			gap: 10px;
-			background-color: #FFFEF8;
-			width: 84px;
-			border: none;
-			font-size: 15px;
-			color: #1D6154;
-			cursor: pointer;
-		}
-	}
-}
+
 .gallery {
 	width: 90%;
 	display: grid;
@@ -181,4 +143,4 @@ nav {
   }
 }
 
-
+}

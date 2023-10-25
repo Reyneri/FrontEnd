@@ -1,5 +1,68 @@
+$main-font: 'Work Sans';
+$main-color: #B1663C;
+$second-font: 'Syne';
+$second-color: #1D6154;
+$bg-color : #FFFEF8;
+
+// USER EST CONNECT////////////////////////////////////////////////////////////////
 // BARRE D'EDITION ET MODE ADMIN //////////////////////////////////////////////////////////////////
+.edit-overlay-admin {
 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    height: 3em;
+    display: flex;
+    align-items: center;
+   
 
+    .overlay-text {
+        color: white;
+        margin: auto; // 
+        font-family: $main-font;
+
+        .style_button-overlay {
+            background: transparent;
+            border: none;
+            color: white; // couleur du texte dans le bouton
+
+            i {
+                font-size: 1em;
+                color: white;
+            }
+        }
+    }
+}
+//  CLASSE PERMETANT D'AFFICHER LES OUTILS ADMIN
+
+.hidden {
+    display: none !important;
+  }
+  
 
 // BOUTON MODIFIER MODE ADMIN  ///////////////////////////////////////////////////////////////////////
+
+
+.modify {
+    
+    justify-content: center;
+    align-items: center;
+    margin-top: 139px;
+    gap: 31px;
+    h2{
+        margin: 0;
+    }
+    button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background-color: #FFFEF8;
+        width: 84px;
+        border: none;
+        font-size: 15px;
+        color: #1D6154;
+        cursor: pointer;
+    }
+}
