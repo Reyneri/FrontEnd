@@ -1,6 +1,7 @@
 async function getAllWorks() {
     const reponse = await fetch ('http://localhost:5678/api/works');
     const data = await reponse.json();
+    console.log(data)
     return data;
 }
 
@@ -77,6 +78,3 @@ function updateSelectedButton(selectedButton) {
     });
     selectedButton.classList.add('selected');
 }
-
-
-document.addEventListener('DOMContentLoaded', adminConnected);

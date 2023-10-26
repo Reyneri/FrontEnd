@@ -11,9 +11,7 @@
 		rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="/assets/scss/style.css">
-
-	<script src="assets/js/api.js" defer></script>
-	<script src="assets/js/connect.js" defer></script>
+	<script src="assets/js/script-connect.js" defer></script>
 	<script src="assets/js/script.js" defer></script>
 	<script src="https://kit.fontawesome.com/58fb884d9c.js" crossorigin="anonymous"></script>
 </head>
@@ -25,49 +23,49 @@
 			<button class="style_button-overlay hidden"><i class="fas fa-edit"></i></button>
 			<button class="style_button-overlay">Mode Édition</button></span>
 	</div>
-
-	<!-- / MODAL MODIFICATION ET SUPPR PROJET//////////////////////////////////////////////////////////   -->
-	<!-- <div class="modal-container">
-        <div class="overlay modal-trigger"></div>
-        <div class="modal">
-            <button class="close-modal modal-trigger">x</button>
-            <h3>Galerie photo</h3>
-            <div class="tri-photos">ensemble de photos</div>
-			
-            <input type="submit" value="Ajouter une photo" class="input-modal modal-trigger-ajout">
-            <a href="">Supprimer la galerie</a>
-        </div>
-	</div>	 -->
-
-	<!-- 
+	<!-- 	   Partie Modal -->
+	<div class="modal-container">
+		<div class="overlay modal-trigger"></div>
+		<div class="modal">
+			<button class="close-modal modal-trigger"><i class="fa"></i></button>
+			<h3>Galerie photo</h3>
+			<div class="tri-photos"></div>
+			<input type="submit" value="Ajouter une photo" class="input-modal modal-trigger-ajout">
+			<a class="supprimer-photos">Supprimer la galerie</a>
+		</div>
+	</div>
 	<div class="modal-container-ajout">
-        <div class="overlay modal-trigger-ajout"></div>
-        <div class="modal">
-            <button class="close-modal modal-trigger-ajout">x</button>
-            <button class="row-modal"><img src="../assets/icons/arrow-left.png" alt=""></button>
-            <h3>Ajout photo</h3>
-            <div class="ajout-photo">
-                <img src="../assets/icons/icone-photo.jpg">
-                <input type="file" id="inputPhoto" style="display: none">
-                <button id="ajouterPhotoBtn">+ Ajouter une photo</button>
-                <p>jpg, png : 4mo max</p>
-            </div>
-            <form action="#" method="post">
-                <label for="name">Titre</label>
-                <input type="text" name="name" id="name" class="input-photo">
-                <label for="categorieSelect">Catégorie</label>
-                <select id="categorieSelect" class="input-photo">
-                    <option value=""></option>
-                    <option value="tous">Tous</option>
-                    <option value="objets">Objets</option>
-                    <option value="appartements">Appartements</option>
-                    <option value="hotels-restaurants">Hôtels & restaurants</option>
-                </select>
-            </form>
-            <input type="submit" value="Valider" class="input-modal">
-        </div>
-    </div>
- -->
+		<div class="overlay modal-trigger-ajout"></div>
+		<div class="modal">
+			<button class="close-modal modal-trigger"><i class="fa fa-times"></i></button>
+			<button class="row-modal modal-trigger"><i class="fa fa-arrow-right"></i></button>
+			<h3>Ajout photo</h3>
+			<div class="ajout-photo">
+				<div class="ajout-photo-before">
+					<i class="fa fa-image"></i>
+					<button id="ajouterPhotoBtn">+ Ajouter une photo</button>
+					<p>jpg, png : 4mo max</p>
+				</div>
+				<div class="ajout-photo-after">
+				</div>
+			</div>
+			<form id="formPhoto" enctype="multipart/form-data" method="post">
+				<input type="file" name="image" id="inputPhoto" style="display: none" accept="image/png, image/jpeg"
+					size="32000000" hidden required>
+				<label for="name">Titre</label>
+				<input type="text" name="name" id="nameModal" class="input-photo" autocomplete="photo">
+				<label for="categorieSelect">Catégorie</label>
+				<select name="categorieModal" id="categorieSelect" class="input-photo">
+					<option value=""></option>
+					<option value=0>Tous</option>
+					<option value=1>Objets</option>
+					<option value=2>Appartements</option>
+					<option value=3>Hôtels & restaurants</option>
+				</select>
+				<input type="submit" value="Valider" class="input-modal validation-photo">
+			</form>
+		</div>
+	</div>
 
 	<header>
 		<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
@@ -106,7 +104,7 @@
 				</div>
 
 				<h2>Mes projets</h2>
-				
+
 				<div class="projets-btn">
 					<button class="Tous_btn selected">Tous</button>
 					<button class="Objets_btn">Objets</button>
@@ -116,51 +114,7 @@
 			</div>
 
 			<div class="gallery">
-				<!-- <figure>
-				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
-				<figcaption>Abajour Tahina</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-v.png" alt="Appartement Paris V">
-				<figcaption>Appartement Paris V</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/restaurant-sushisen-londres.png" alt="Restaurant Sushisen - Londres">
-				<figcaption>Restaurant Sushisen - Londres</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/la-balisiere.png" alt="Villa “La Balisiere” - Port Louis">
-				<figcaption>Villa “La Balisiere” - Port Louis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/structures-thermopolis.png" alt="Structures Thermopolis">
-				<figcaption>Structures Thermopolis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-x.png" alt="Appartement Paris X">
-				<figcaption>Appartement Paris X</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/le-coteau-cassis.png" alt="Pavillon “Le coteau” - Cassis">
-				<figcaption>Pavillon “Le coteau” - Cassis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/villa-ferneze.png" alt="Villa Ferneze - Isola d’Elba">
-				<figcaption>Villa Ferneze - Isola d’Elba</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-xviii.png" alt="Appartement Paris XVIII">
-				<figcaption>Appartement Paris XVIII</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/bar-lullaby-paris.png" alt="Bar “Lullaby” - Paris">
-				<figcaption>Bar “Lullaby” - Paris</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi">
-				<figcaption>Hotel First Arte - New Delhi</figcaption>
-			</figure>
-		</div> -->
+
 		</section>
 		<section id="contact">
 			<h2>Contact</h2>
