@@ -6,13 +6,6 @@ async function getAllWorks() {
 }
 
 
-document.querySelector('.Tous_btn').addEventListener('click',async function() {
-    const  allWorks = await getAllWorks() ;
-    await init(allWorks);
-    updateSelectedButton(this);
-});
-
-
 // Initialization de la gallerie
 
 async function init(elements) {
@@ -44,6 +37,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
 // Filtrage et trie 
+document.querySelector('.Tous_btn').addEventListener('click',async function() {
+    const  allWorks = await getAllWorks() ;
+    await init(allWorks);
+    updateSelectedButton(this);
+});
+
 
 document.querySelector('.Objets_btn').addEventListener('click', async function() {
     const allWorks = await getAllWorks();
@@ -77,4 +76,51 @@ function updateSelectedButton(selectedButton) {
         button.classList.remove('selected');
     });
     selectedButton.classList.add('selected');
+}
+
+// Fonction modal 
+
+
+
+async function initModalGallery(elements) {
+    const triPhoto = document.querySelector('.tri-photos');
+    triPhoto.innerHTML = ""; // Effacer le contenu actuel de .tri-photos
+
+    // Attendre que .tri-photos se vide
+    await new Promise(resolve => setTimeout(resolve, 0));
+
+    elements.forEach(element => {
+        const div = document.createElement('div');
+        div.style.position = "relative";
+        const img = document.createElement('img');
+        img.src = element.imageUrl;
+        const p = document.createElement('p');
+        p.innerText = "éditer";
+        const i = document.createElement('i');
+        i.classList.add("fa-regular");
+        i.classList.add("fa-trash-can");
+
+        div.appendChild(img);
+        div.appendChild(p);
+        div.appendChild(i);
+        triPhoto.appendChild(div);
+
+        i.addEventListener("click", async function () {
+            console.log(i);
+            await deletePhoto(element.id);
+            window.location.reload();
+        });
+    });
+}
+
+
+
+async function toggleModal() {
+    
+    
+    document.querySelector(".tri-photos").innerHTML = "";
+    
+    await initModalGallery(works);
+    const works = await getAllWorks();
+
 }

@@ -1,24 +1,28 @@
-
+window.addEventListener('DOMContentLoaded', (event) => {
 // Fonction pour activer l'interface admin
 async function adminConnected() {
     const token = window.localStorage.getItem("appToken");
+    console.log("Token récupéré : ", token);
     const loginBtn = document.querySelector('.login-btn');
     const logoutBtn = document.querySelector('.logout-btn');
     const modify = document.querySelector('.modify');
     const barreAdmin = document.getElementById('edit-overlay-admin');
+   
+      
 
     if (token) {
-        logoutBtn.classList.remove('hidden');  
-        loginBtn.classList.add('hidden');
-        modify.classList.remove('hidden');
-        barreAdmin.classList.remove('hidden');
+        logoutBtn.style.display = "block";
+        loginBtn.style.display = "none";
+        modify.style.display = "block";
+        barreAdmin.style.display = "flex";
     } else {
-        loginBtn.classList.remove('hidden');
-        logoutBtn.classList.add('hidden');
-        modify.classList.add('hidden');
-        barreAdmin.classList.add('hidden');
+        loginBtn.style.display = "block";
+        logoutBtn.style.display = "none";
+        modify.style.display = "none";
+        barreAdmin.style.display = "none";
     }
 }
+
 
 // Fonction pour se connecter
 async function loginUser(userData) {
@@ -34,6 +38,7 @@ async function loginUser(userData) {
     if (response.ok) {
         const token = data.token;
         window.localStorage.setItem("appToken", token);
+        console.log("Token stocké : ", window.localStorage.getItem("appToken"));
         return "userisConnected";
     } else {
         return false;
@@ -91,7 +96,7 @@ loginForm.addEventListener('submit', async function (event) {
 });
 
 
-
+});
 
 
 

@@ -18,23 +18,26 @@
 
 <body>
 	<!-- // BARRE D'EDITION ET MODE ADMIN ////////////////////////////////////////////////////////////// -->
-	<div id="edit-overlay-admin" class="edit-overlay-admin hidden">
+	<div id="edit-overlay-admin" class="edit-overlay-admin" style="display: none;">
 		<span class="overlay-text">
-			<button class="style_button-overlay hidden"><i class="fas fa-edit"></i></button>
+			<button class="style_button-overlay "><i class="fas fa-edit"></i></button>
 			<button class="style_button-overlay">Mode Édition</button></span>
 	</div>
 	<!-- 	   Partie Modal -->
-	<div class="modal-container">
+	<div class="modal-container"  style="display: none;">
 		<div class="overlay modal-trigger"></div>
 		<div class="modal">
 			<button class="close-modal modal-trigger"><i class="fa"></i></button>
 			<h3>Galerie photo</h3>
-			<div class="tri-photos"></div>
+			<div class="tri-photos">
+				
+			</div>
 			<input type="submit" value="Ajouter une photo" class="input-modal modal-trigger-ajout">
 			<a class="supprimer-photos">Supprimer la galerie</a>
 		</div>
 	</div>
-	<div class="modal-container-ajout">
+	
+	<div class="modal-container-ajout" style="display: none;">
 		<div class="overlay modal-trigger-ajout"></div>
 		<div class="modal">
 			<button class="close-modal modal-trigger"><i class="fa fa-times"></i></button>
@@ -73,8 +76,8 @@
 			<ul>
 				<li class="liste-header" id="portfolio"><a href="#portfolio">projets</a></li>
 				<li class="liste-header" id="contact-btn">contact</li>
-				<li class="liste-header login-btn"><a href="pages/login.html">login</a></li>
-				<li class="liste-header logout-btn hidden"><a href="index.html">logout</a></li>
+				<li class="liste-header login-btn" style="display: block;"><a href="pages/login.html">login</a></li>
+				<li class="liste-header logout-btn " style="display: none;"><a href="index.html">logout</a></li>
 				<li class="liste-header"><img src="/assets/icons/instagram.png" alt="Instagram" class="instagram"></li>
 			</ul>
 		</nav>
@@ -98,7 +101,7 @@
 		</section>
 		<section id="portfolio">
 			<div class="titleProjet ">
-				<div class="modify hidden">
+				<div class="modify" style="display: none;">
 					<h2>Mes projets</h2>
 					<button class="modal-btn modal-trigger"><i class="fa-solid fa-pen-to-square"></i>modifier</button>
 				</div>

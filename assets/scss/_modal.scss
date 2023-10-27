@@ -10,7 +10,7 @@ $couleur-fond: #FFFEF8;
 /* Modal */
 
 .modal-container {
-	display: none;
+	
 	position: fixed;
 	top: 0;
 	width: 100vw;
@@ -31,11 +31,13 @@ $couleur-fond: #FFFEF8;
 		}
 		i {
 			position: absolute;
-			left: 55px;
-			bottom: 94px;
-			color: black;
-			background-color: white;
+			right: 5px;
+			top: 5px;
+			color: rgb(255, 255, 255);
+			background-color: rgb(0, 0, 0);
 			cursor: pointer;
+			font-size: 100%;
+			padding: 4px;
 		}
 	}
 	.supprimer-photos {
@@ -46,13 +48,16 @@ $couleur-fond: #FFFEF8;
 	}
 }
 
+
+
+
 .modal-container-ajout {
-	display: flex;
+	
 	position: fixed;
 	top: 0;
 	width: 100vw;
 	height: 100vh;
-	transition: visibility 0.4s;
+	
 	.row-modal{
 		padding: 8px 10px;
 		border: none;
@@ -67,10 +72,15 @@ $couleur-fond: #FFFEF8;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		justify-content: space-around;
 		height: 169px;
 		width: 420px;
 		background-color: #E8F1F6;
 		margin-top: 36px;
+		i{
+			font-size: 76px;
+			color:#B9C5CC;
+		}
 	}
 	.ajout-photo-after {
 		display: none;
@@ -123,7 +133,7 @@ $couleur-fond: #FFFEF8;
 
 
 .overlay {
-	opacity: 0;
+	opacity: 30%;
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -140,10 +150,10 @@ $couleur-fond: #FFFEF8;
 	max-width: 500px;
 	min-width: 300px;
 	padding: 30px;
-	background: #FFFEF8;
+	background: #ffffff;
 	border-radius: 10px;
 	position: absolute;
-	top: 40%;
+	top: 50%;
 	left: 50%;
 	transform: translate(-50%, calc(-50% - 50px));
 	transition: opacity 0.4s ease-out,
