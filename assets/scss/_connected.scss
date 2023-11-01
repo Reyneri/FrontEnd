@@ -14,7 +14,7 @@ $bg-color : #FFFEF8;
     right: 0;
     background-color: black;
     height: 3em;
-    display: flex;
+    display: none;
     align-items: center;
    
 
@@ -43,7 +43,9 @@ $bg-color : #FFFEF8;
   
 
 // BOUTON MODIFIER MODE ADMIN  ///////////////////////////////////////////////////////////////////////
-
+.btn-modify{
+    display: none;
+}
 
 .modify {
     

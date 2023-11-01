@@ -11,32 +11,33 @@
 		rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="/assets/scss/style.css">
-	<script src="assets/js/script-connect.js" defer></script>
 	<script src="assets/js/script.js" defer></script>
+	<!-- <script src="assets/js/script-connect.js" defer></script> -->
+	
 	<script src="https://kit.fontawesome.com/58fb884d9c.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 	<!-- // BARRE D'EDITION ET MODE ADMIN ////////////////////////////////////////////////////////////// -->
-	<div id="edit-overlay-admin" class="edit-overlay-admin" style="display: none;">
+	<div id="edit-overlay-admin" class="edit-overlay-admin" >
 		<span class="overlay-text">
 			<button class="style_button-overlay "><i class="fas fa-edit"></i></button>
 			<button class="style_button-overlay">Mode Édition</button></span>
 	</div>
 	<!-- 	   Partie Modal -->
-	<div class="modal-container"  style="display: none;">
+	<div class="modal-container" >
 		<div class="overlay modal-trigger"></div>
 		<div class="modal">
 			<button class="close-modal modal-trigger"><i class="fa"></i></button>
 			<h3>Galerie photo</h3>
 			<div class="tri-photos">
-				
+
 			</div>
 			<input type="submit" value="Ajouter une photo" class="input-modal modal-trigger-ajout">
 			<a class="supprimer-photos">Supprimer la galerie</a>
 		</div>
 	</div>
-	
+
 	<div class="modal-container-ajout" style="display: none;">
 		<div class="overlay modal-trigger-ajout"></div>
 		<div class="modal">
@@ -59,7 +60,7 @@
 				<input type="text" name="name" id="nameModal" class="input-photo" autocomplete="photo">
 				<label for="categorieSelect">Catégorie</label>
 				<select name="categorieModal" id="categorieSelect" class="input-photo">
-					<option value=""></option>
+					
 					<option value=0>Tous</option>
 					<option value=1>Objets</option>
 					<option value=2>Appartements</option>
@@ -74,10 +75,10 @@
 		<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 		<nav>
 			<ul>
-				<li class="liste-header" id="portfolio"><a href="#portfolio">projets</a></li>
+				<li class="liste-header portfolio" ><a href="#portfolio">projets</a></li>
 				<li class="liste-header" id="contact-btn">contact</li>
-				<li class="liste-header login-btn" style="display: block;"><a href="pages/login.html">login</a></li>
-				<li class="liste-header logout-btn " style="display: none;"><a href="index.html">logout</a></li>
+				<li class="liste-header login-btn" ><a href="pages/login.html">login</a></li>
+				<li class="liste-header logout-btn " ><a href="">logout</a></li>
 				<li class="liste-header"><img src="/assets/icons/instagram.png" alt="Instagram" class="instagram"></li>
 			</ul>
 		</nav>
@@ -101,12 +102,11 @@
 		</section>
 		<section id="portfolio">
 			<div class="titleProjet ">
-				<div class="modify" style="display: none;">
-					<h2>Mes projets</h2>
-					<button class="modal-btn modal-trigger"><i class="fa-solid fa-pen-to-square"></i>modifier</button>
-				</div>
 
-				<h2>Mes projets</h2>
+
+				<div class="projets">
+					<h2>Mes projets</h2> <span class="btn-modify"><i class=" fa-solid fa-pen-to-square"></i>modifier</span>
+				</div>
 
 				<div class="projets-btn">
 					<button class="Tous_btn selected">Tous</button>
@@ -117,7 +117,7 @@
 			</div>
 
 			<div class="gallery">
-
+			</div>
 		</section>
 		<section id="contact">
 			<h2>Contact</h2>

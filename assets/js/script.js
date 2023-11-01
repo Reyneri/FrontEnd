@@ -1,3 +1,13 @@
+
+
+
+const projetBtn = document.querySelector('.projets-btn')
+const loginBtn = document.querySelector('.login-btn');
+const logoutBtn = document.querySelector('.logout-btn');
+const modify = document.querySelector('.btn-modify');
+const barreAdmin = document.getElementById('edit-overlay-admin');
+
+
 async function getAllWorks() {
     const reponse = await fetch ('http://localhost:5678/api/works');
     const data = await reponse.json();
@@ -28,6 +38,7 @@ elements.forEach(element => {
     gallery.appendChild(figure) ;
     
 });
+adminConnected()
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -124,3 +135,34 @@ async function toggleModal() {
     const works = await getAllWorks();
 
 }
+// qund cette fonction apple on affiche tout les element
+ // Fonction pour activer l'interface admin
+ async function adminConnected() {
+    const token = window.localStorage.getItem("appToken");
+    console.log("Token récupéré : ", token);
+   
+
+    if (token) {
+        projetBtn.style.display ="none"
+        logoutBtn.style.display = "block";
+        loginBtn.style.display = "none";
+        modify.style.display = "block";
+        barreAdmin.style.display = "flex";
+    } else {
+        projetBtn.style.display ="flex"
+        loginBtn.style.display = "block";
+        logoutBtn.style.display = "none";
+        modify.style.display = "none";
+        barreAdmin.style.display = "none";
+    }
+}
+
+// function isDisconnected{}
+function disconnected() {
+    const token = window.localStorage.getItem("appToken");
+
+    if(token){
+        window.localStorage.removeItem("appToken")
+    }
+}
+logoutBtn.addEventListener("click",disconnected);

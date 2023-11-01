@@ -170,6 +170,16 @@ h2 {
   border-radius: 60px;
 }
 
+.projets {
+  text-align: center;
+  padding: 0;
+}
+.projets h2 {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
 body, html {
   height: 100%;
 }
@@ -221,7 +231,7 @@ body, html {
   right: 0;
   background-color: black;
   height: 3em;
-  display: flex;
+  display: none;
   align-items: center;
 }
 .edit-overlay-admin .overlay-text {
@@ -241,6 +251,10 @@ body, html {
 
 .hidden {
   display: none !important;
+}
+
+.btn-modify {
+  display: none;
 }
 
 .modify {
@@ -266,6 +280,7 @@ body, html {
 
 /* Modal */
 .modal-container {
+  display: none;
   position: fixed;
   top: 0;
   width: 100vw;
@@ -462,6 +477,14 @@ nav li {
 }
 nav li:hover {
   color: #B1663C;
+}
+
+.login-btn {
+  display: block;
+}
+
+.logout-btn {
+  display: none;
 }
 
 footer nav ul {
