@@ -9,7 +9,7 @@ const barreAdmin = document.getElementById('edit-overlay-admin');
 
 
 async function getAllWorks() {
-    const reponse = await fetch ('http://localhost:5678/api/works');
+    const reponse = await fetch('http://localhost:5678/api/works');
     const data = await reponse.json();
     console.log(data)
     return data;
@@ -21,24 +21,24 @@ async function getAllWorks() {
 async function init(elements) {
 
     const gallery = document.querySelector('.gallery');
-gallery.innerHTML="" ; // j'efface la galerie pour la remplir avec les element du work.json
+    gallery.innerHTML = ""; // j'efface la galerie pour la remplir avec les element du work.json
 
-//Attendre que la gallery se vide
-await new Promise(resolve => setTimeout(resolve, 0));
+    //Attendre que la gallery se vide
+    await new Promise(resolve => setTimeout(resolve, 0));
 
-elements.forEach(element => {
-    const figure =document.createElement('figure') ;
-    const img = document.createElement('img') ;
-    img.src =element.imageUrl ;
-    const caption = document.createElement('figcaption') ;
-    caption.innerText =element.title ;
+    elements.forEach(element => {
+        const figure = document.createElement('figure');
+        const img = document.createElement('img');
+        img.src = element.imageUrl;
+        const caption = document.createElement('figcaption');
+        caption.innerText = element.title;
 
-    figure.appendChild(img) ;
-    figure.appendChild(caption);
-    gallery.appendChild(figure) ;
-    
-});
-adminConnected()
+        figure.appendChild(img);
+        figure.appendChild(caption);
+        gallery.appendChild(figure);
+
+    });
+    adminConnected()
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -48,14 +48,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
 // Filtrage et trie 
-document.querySelector('.Tous_btn').addEventListener('click',async function() {
-    const  allWorks = await getAllWorks() ;
+document.querySelector('.Tous_btn').addEventListener('click', async function () {
+    const allWorks = await getAllWorks();
     await init(allWorks);
     updateSelectedButton(this);
 });
 
 
-document.querySelector('.Objets_btn').addEventListener('click', async function() {
+document.querySelector('.Objets_btn').addEventListener('click', async function () {
     const allWorks = await getAllWorks();
     const filteredWorks = allWorks.filter(work => work.categoryId === 1);
     await init(filteredWorks);
@@ -63,7 +63,7 @@ document.querySelector('.Objets_btn').addEventListener('click', async function()
 });
 
 
-document.querySelector('.Appartements_btn').addEventListener('click', async function() {
+document.querySelector('.Appartements_btn').addEventListener('click', async function () {
     const allWorks = await getAllWorks();
     const filteredWorks = allWorks.filter(work => work.categoryId === 2);
     await init(filteredWorks);
@@ -71,7 +71,7 @@ document.querySelector('.Appartements_btn').addEventListener('click', async func
 });
 
 
-document.querySelector('.Hotels-restaurants_btn').addEventListener('click', async function() {
+document.querySelector('.Hotels-restaurants_btn').addEventListener('click', async function () {
     const allWorks = await getAllWorks();
     const filteredWorks = allWorks.filter(work => work.categoryId === 3);
     await init(filteredWorks);
@@ -89,67 +89,23 @@ function updateSelectedButton(selectedButton) {
     selectedButton.classList.add('selected');
 }
 
-// Fonction modal 
 
 
-
-async function initModalGallery(elements) {
-    const triPhoto = document.querySelector('.tri-photos');
-    triPhoto.innerHTML = ""; // Effacer le contenu actuel de .tri-photos
-
-    // Attendre que .tri-photos se vide
-    await new Promise(resolve => setTimeout(resolve, 0));
-
-    elements.forEach(element => {
-        const div = document.createElement('div');
-        div.style.position = "relative";
-        const img = document.createElement('img');
-        img.src = element.imageUrl;
-        const p = document.createElement('p');
-        p.innerText = "éditer";
-        const i = document.createElement('i');
-        i.classList.add("fa-regular");
-        i.classList.add("fa-trash-can");
-
-        div.appendChild(img);
-        div.appendChild(p);
-        div.appendChild(i);
-        triPhoto.appendChild(div);
-
-        i.addEventListener("click", async function () {
-            console.log(i);
-            await deletePhoto(element.id);
-            window.location.reload();
-        });
-    });
-}
-
-
-
-async function toggleModal() {
-    
-    
-    document.querySelector(".tri-photos").innerHTML = "";
-    
-    await initModalGallery(works);
-    const works = await getAllWorks();
-
-}
-// qund cette fonction apple on affiche tout les element
- // Fonction pour activer l'interface admin
- async function adminConnected() {
+// qund cette fonction appele on affiche tout les element
+// Fonction pour activer l'interface admin
+async function adminConnected() {
     const token = window.localStorage.getItem("appToken");
     console.log("Token récupéré : ", token);
-   
+
 
     if (token) {
-        projetBtn.style.display ="none"
+        projetBtn.style.display = "none"
         logoutBtn.style.display = "block";
         loginBtn.style.display = "none";
         modify.style.display = "block";
         barreAdmin.style.display = "flex";
     } else {
-        projetBtn.style.display ="flex"
+        projetBtn.style.display = "flex"
         loginBtn.style.display = "block";
         logoutBtn.style.display = "none";
         modify.style.display = "none";
@@ -161,8 +117,58 @@ async function toggleModal() {
 function disconnected() {
     const token = window.localStorage.getItem("appToken");
 
-    if(token){
+    if (token) {
         window.localStorage.removeItem("appToken")
     }
 }
-logoutBtn.addEventListener("click",disconnected);
+logoutBtn.addEventListener("click", disconnected);
+
+
+let isadminConnected = true;
+
+// Quand on clique sur un des bouton modifier admin (.overlay-text) ou  
+// bouton modifier Projet en admin (.btn-modify) on ouvre le modal (.modal-container)
+// Le modal ne peux apparaitre que si adminConnected et clique bouton modifier en adminConnected
+document.querySelector('.overlay-text').addEventListener('click', async function () {
+    if (isadminConnected) {
+        showModal();
+    }
+});
+
+document.querySelector('.btn-modify').addEventListener('click', async function () {
+    if (isadminConnected) {
+        showModal();
+    }
+});
+
+
+const showModal = () => {
+
+    document.getElementById('modal-container').style.display = "flex";
+
+};
+console.log(isadminConnected)
+
+document.querySelector('.close-modal').addEventListener('click', async function () {
+    closeModal();
+
+});
+
+const closeModal = () => {
+    const modalContainer = document.getElementById('modal-container');
+    if (modalContainer) {
+        modalContainer.style.display = "none";
+    }
+};
+
+// Quand on clique que le bouton ajouter photo 
+
+
+
+
+
+
+
+
+
+

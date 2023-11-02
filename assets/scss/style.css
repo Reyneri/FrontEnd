@@ -234,6 +234,11 @@ body, html {
   display: none;
   align-items: center;
 }
+.edit-overlay-admin :hover {
+  font-size: 103%;
+  font-weight: bolder;
+  cursor: pointer;
+}
 .edit-overlay-admin .overlay-text {
   color: white;
   margin: auto;
@@ -255,6 +260,11 @@ body, html {
 
 .btn-modify {
   display: none;
+}
+.btn-modify:hover {
+  font-size: 103%;
+  font-weight: bolder;
+  cursor: pointer;
 }
 
 .modify {

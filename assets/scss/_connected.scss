@@ -16,7 +16,13 @@ $bg-color : #FFFEF8;
     height: 3em;
     display: none;
     align-items: center;
-   
+
+    :hover {
+        font-size: 103%;
+        font-weight: bolder;
+        cursor: pointer;
+    }
+
 
     .overlay-text {
         color: white;
@@ -28,6 +34,7 @@ $bg-color : #FFFEF8;
             border: none;
             color: white; // couleur du texte dans le bouton
 
+
             i {
                 font-size: 1em;
                 color: white;
@@ -35,28 +42,39 @@ $bg-color : #FFFEF8;
         }
     }
 }
+
 //  CLASSE PERMETANT D'AFFICHER LES OUTILS ADMIN
 
 .hidden {
     display: none !important;
-  }
-  
+}
+
 
 // BOUTON MODIFIER MODE ADMIN  ///////////////////////////////////////////////////////////////////////
-.btn-modify{
+.btn-modify {
     display: none;
+
+&:hover {
+    font-size: 103%;
+    font-weight: bolder;
+    cursor: pointer;
+}
+   
 }
 
 .modify {
-    
+
     justify-content: center;
     align-items: center;
     margin-top: 139px;
     gap: 31px;
-    h2{
+
+    h2 {
         margin: 0;
     }
+
     button {
+        
         display: inline-flex;
         align-items: center;
         gap: 10px;
