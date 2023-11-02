@@ -142,33 +142,69 @@ document.querySelector('.btn-modify').addEventListener('click', async function (
 });
 
 
+
+// 1. Affichage du modal principal
 const showModal = () => {
-
     document.getElementById('modal-container').style.display = "flex";
-
 };
-console.log(isadminConnected)
 
-document.querySelector('.close-modal').addEventListener('click', async function () {
-    closeModal();
+// 2. Vérification si l'utilisateur est administrateur
+console.log(isadminConnected);
 
+// 3. Fermeture du modal
+document.querySelectorAll('.close-modal').forEach(button => {
+    button.addEventListener('click', async function () {
+        closeModal();
+    });
 });
 
 const closeModal = () => {
     const modalContainer = document.getElementById('modal-container');
+    const modalContainerAjout = document.getElementById('modal-container-ajout');
     if (modalContainer) {
         modalContainer.style.display = "none";
     }
+    if (modalContainerAjout) {
+        modalContainerAjout.style.display = "none";
+    }
 };
 
-// Quand on clique que le bouton ajouter photo 
+// 4. Affichage et masquage du modal d'ajout de photo
+const modalContainerAjout = document.getElementById('modal-container-ajout');
+const showAjoutModal = () => {
+    modalContainerAjout.style.display = "flex";
+};
+
+const hideAjoutModal = () => {
+    modalContainerAjout.style.display = "none";
+};
+
+// 5. Gestionnaire d'événement pour le bouton d'ajout de photo
+const triggerAjoutModal = document.getElementById('modal-trigger-ajout');
+triggerAjoutModal.addEventListener('click', async function () {
+    closeModal(); // 🛠️ Appellera désormais la fonction réparée
+    showAjoutModal();
+});
+
+// 6. Gestionnaire d'événement pour le bouton de retour du modal d'ajout de photo
+const backAjoutModal = document.querySelector('.row-modal');
+backAjoutModal.addEventListener('click', async function () {
+    hideAjoutModal();
+    showModal();
+});
 
 
 
 
 
 
+// Misc 
 
-
-
+document.querySelector('.supprimer-photos').addEventListener('click', async function () {
+    const isConfirmed = confirm('Êtes-vous sûr de vouloir supprimer la galerie ?');
+    if (isConfirmed) {
+        // Appel  API pour supprimer tous les fichier de la galerie ici
+        // Utiliser fetch ou autre pour envoyer la requête à l'API
+    }
+});
 
