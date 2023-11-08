@@ -304,21 +304,29 @@ body, html {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 5px;
 }
-.modal-container .tri-photos img {
+.modal-container .tri-photos .img-modal-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 102px;
-  width: 76px;
 }
-.modal-container .tri-photos p {
+.modal-container .tri-photos .img-modal-container img {
+  height: 100%;
+  width: auto;
+  max-width: 76px;
+}
+.modal-container .tri-photos .img-modal-container p {
   font-size: 14px;
 }
-.modal-container .tri-photos i {
+.modal-container .tri-photos .img-modal-container i {
   position: absolute;
   right: 5px;
   top: 5px;
-  color: rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
+  color: #fff;
+  background-color: #000;
   cursor: pointer;
-  font-size: 100%;
+  font-size: 0.7rem;
   padding: 4px;
 }
 .modal-container .supprimer-photos {

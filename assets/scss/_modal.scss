@@ -22,23 +22,32 @@ $couleur-fond: #FFFEF8;
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 		gap: 5px;
-		img {
+		.img-modal-container{
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			height: 102px;
-			width: 76px;
+			img {
+				height: 100%;
+				width: auto;
+				max-width: 76px;
+			}
+			p {
+				font-size: 14px;
+			}
+			i {
+				position: absolute;
+				right: 5px;
+				top: 5px;
+				color: #fff;
+				background-color:#000;
+				cursor: pointer;
+				font-size: 0.7rem;
+				padding: 4px;
+			}
 		}
-		p {
-			font-size: 14px;
-		}
-		i {
-			position: absolute;
-			right: 5px;
-			top: 5px;
-			color: rgb(255, 255, 255);
-			background-color: rgb(0, 0, 0);
-			cursor: pointer;
-			font-size: 100%;
-			padding: 4px;
-		}
+		
 	}
 	.supprimer-photos {
 		font-family: 'Syne';

@@ -132,12 +132,15 @@ let isadminConnected = true;
 document.querySelector('.overlay-text').addEventListener('click', async function () {
     if (isadminConnected) {
         showModal();
+        await loadAndShowModalGallery();
     }
 });
+
 
 document.querySelector('.btn-modify').addEventListener('click', async function () {
     if (isadminConnected) {
         showModal();
+        await loadAndShowModalGallery();
     }
 });
 
@@ -161,11 +164,13 @@ document.querySelectorAll('.close-modal').forEach(button => {
 const closeModal = () => {
     const modalContainer = document.getElementById('modal-container');
     const modalContainerAjout = document.getElementById('modal-container-ajout');
+    clearPhotoAjout()
     if (modalContainer) {
         modalContainer.style.display = "none";
     }
     if (modalContainerAjout) {
         modalContainerAjout.style.display = "none";
+
     }
 };
 
@@ -191,13 +196,85 @@ const backAjoutModal = document.querySelector('.row-modal');
 backAjoutModal.addEventListener('click', async function () {
     hideAjoutModal();
     showModal();
+
+});
+
+
+//7. Gestion de la photo ajouter et previw de l'image -  
+
+document.getElementById('ajouterPhotoBtn').addEventListener('click', function () {
+    document.getElementById('inputPhoto').click();
+});
+
+document.getElementById('inputPhoto').addEventListener('change', async function (e) {
+    const file = e.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+            const imgElement = document.createElement('img');
+            imgElement.src = event.target.result;
+            document.querySelector('.ajout-photo-after').appendChild(imgElement);
+            document.querySelector('.ajout-photo-before').style.display = 'none';
+            document.querySelector('.ajout-photo-after').style.display = 'flex';
+        }
+        reader.readAsDataURL(file);
+    }
 });
 
 
 
+window.addEventListener('resetImageAfter', function () {
+    const imgContainer = document.querySelector('.ajout-photo-after');
+    while (imgContainer.firstChild) {
+        imgContainer.removeChild(imgContainer.firstChild);
+    }
+    document.querySelector('.ajout-photo-before').style.display = 'flex';
+    document.querySelector('.ajout-photo-after').style.display = 'none';
+});
 
 
 
+const clearPhotoAjout = () => {
+    const ajoutPhotoAfter = document.querySelector('.ajout-photo-after');
+    const ajoutPhotoBefore = document.querySelector('.ajout-photo-before');
+    ajoutPhotoAfter.innerHTML = '';
+    ajoutPhotoBefore.style.display = 'flex';  // Afficher la section d'ajout de photo
+    ajoutPhotoAfter.style.display = 'none';   // Cache la section des photos ajoutées
+};
+
+//8. Projection photo de la galerie dans le modal connection API
+
+
+
+
+// Initialisation de la Gallerie du modal 
+async function initModalGallery(elements) {
+    const modalGallery = document.querySelector('.tri-photos');
+    modalGallery.innerHTML = ""; // Nettoie le contenu précédent
+  
+    elements.forEach(element => {
+ const container = document.createElement('div')
+ container.classList.add('img-modal-container');
+
+      const img = document.createElement('img');
+      img.src = element.imageUrl;
+      const icon = document.createElement('i');
+      icon.className = 'fa-solid fa-trash-can'; 
+      modalGallery.appendChild(container)
+      container.appendChild(img);
+      container.appendChild(icon)
+    });
+  } //voir event listener pour eng la gall modal
+// console.log(initModalGallery)
+
+
+// Fonction pour charger et afficher la galerie modal
+async function loadAndShowModalGallery() {
+    const allWorks = await getAllWorks();
+    await initModalGallery(allWorks);
+    showModal();
+};
+console.log(loadAndShowModalGallery)
 // Misc 
 
 document.querySelector('.supprimer-photos').addEventListener('click', async function () {
