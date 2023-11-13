@@ -136,39 +136,6 @@ h2 {
 #portfolio .gallery img {
   width: 100%;
 }
-#portfolio #contact {
-  width: 50%;
-  margin: auto;
-}
-#portfolio #contact > * {
-  text-align: center;
-}
-#portfolio #contact h2 {
-  margin-bottom: 20px;
-}
-#portfolio #contact form {
-  text-align: left;
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-}
-#portfolio #contact input, #portfolio #contact textarea {
-  border: none;
-  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-}
-#portfolio #contact label {
-  margin: 2em 0 1em 0;
-}
-#portfolio #contact input[type=submit] {
-  font-family: "Syne";
-  font-weight: 700;
-  color: white;
-  background-color: #1D6154;
-  margin: 2em auto;
-  width: 180px;
-  text-align: center;
-  border-radius: 60px;
-}
 
 .projets {
   text-align: center;
@@ -178,6 +145,41 @@ h2 {
   margin: 0;
   padding: 0;
   display: inline-block;
+}
+
+#contact {
+  width: 50%;
+  margin: auto;
+}
+#contact > * {
+  text-align: center;
+}
+#contact h2 {
+  margin-bottom: 20px;
+}
+#contact form {
+  text-align: left;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+#contact input, #contact textarea {
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  padding: 1rem;
+}
+#contact label {
+  margin: 2em 0 1em 0;
+}
+#contact input[type=submit] {
+  font-family: "Syne";
+  font-weight: 700;
+  color: white;
+  background-color: #1D6154;
+  margin: 2em auto;
+  width: 180px;
+  text-align: center;
+  border-radius: 60px;
 }
 
 body, html {

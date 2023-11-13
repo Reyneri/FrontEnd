@@ -94,7 +94,7 @@ function updateSelectedButton(selectedButton) {
 // qund cette fonction appele on affiche tout les element
 // Fonction pour activer l'interface admin
 async function adminConnected() {
-    const token = window.localStorage.getItem("appToken");
+    const token = window.localStorage.getItem('appToken');
     console.log("Token récupéré : ", token);
 
 
@@ -251,20 +251,51 @@ const clearPhotoAjout = () => {
 async function initModalGallery(elements) {
     const modalGallery = document.querySelector('.tri-photos');
     modalGallery.innerHTML = ""; // Nettoie le contenu précédent
-  
-    elements.forEach(element => {
- const container = document.createElement('div')
- container.classList.add('img-modal-container');
 
-      const img = document.createElement('img');
-      img.src = element.imageUrl;
-      const icon = document.createElement('i');
-      icon.className = 'fa-solid fa-trash-can'; 
-      modalGallery.appendChild(container)
-      container.appendChild(img);
-      container.appendChild(icon)
+    elements.forEach(element => {
+        const container = document.createElement('div');
+        container.classList.add('img-modal-container');
+        container.setAttribute('data-projet-id', element.id); // Utilisation de data- pour l'attribut personnalisé
+
+        const img = document.createElement('img');
+        img.src = element.imageUrl;
+
+        const icon = document.createElement('i');
+        icon.className = 'fa-solid fa-trash-can';
+        icon.addEventListener('click', async function () {
+            const projetId = this.parentNode.getAttribute('data-projet-id');
+            const token = window.localStorage.getItem('appToken');
+            if (!token) {
+                console.error('Token d\'authentification manquant');
+                return;
+            }
+            try {
+                const response = await fetch(`http://localhost:5678/api/works/${projetId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                if (response.ok) {
+                    this.parentNode.remove(); // Suppression du conteneur de l'image du DOM
+                    const allWorks =await getAllWorks();
+                    init(allWorks)
+                } else {
+                    console.error(`Échec de la suppression du projet. Statut de la réponse: ${response.status}`);
+                }
+            } catch (erreur) {
+                console.error('Erreur réseau :', erreur);
+            }
+        });
+
+        modalGallery.appendChild(container);
+        container.appendChild(img);
+        container.appendChild(icon);
     });
-  } //voir event listener pour eng la gall modal
+}
+
+
+ //voir event listener pour eng la gall modal
 // console.log(initModalGallery)
 
 
@@ -276,6 +307,10 @@ async function loadAndShowModalGallery() {
 };
 console.log(loadAndShowModalGallery)
 // Misc 
+// Fonction Effacer un projet   
+
+
+
 
 document.querySelector('.supprimer-photos').addEventListener('click', async function () {
     const isConfirmed = confirm('Êtes-vous sûr de vouloir supprimer la galerie ?');
@@ -285,3 +320,53 @@ document.querySelector('.supprimer-photos').addEventListener('click', async func
     }
 });
 
+
+async function AjoutPhoto() {
+    const formElement = document.getElementById('formPhoto');
+    const formData = new FormData(formElement);
+
+    // Récupérer les valeurs des champs du formulaire pour le titre et la catégorie
+    const title = document.getElementById('nameModal').value;
+    const category = document.getElementById('categorieSelect').value;
+
+    // Ajoute les champs supplémentaires à formData
+    formData.append('title', title);
+    formData.append('category', category);
+
+    // Récupere le token depuis le localStorage
+    const token = window.localStorage.getItem('appToken');
+
+    // Préparer les en-têtes de la requête, y compris le token d'autorisation
+    const headers = new Headers();
+    headers.append('Authorization', `Bearer ${token}`);
+    // Ici,  pas de 'Content-Type' à 'application/json'
+    // car on envoie un formData qui nécessite 'multipart/form-data'
+
+    try {
+        const response = await fetch('http://localhost:5678/api/works', {
+            method: 'POST',
+            headers: headers,
+            body: formData
+        });
+
+        if (response.ok) {
+            const workAdded = await response.json();
+            console.log('Projet ajouté:', workAdded);
+            const allWorks =await getAllWorks();
+            init(allWorks);
+            
+            // Reinit le formulaire 
+            document.getElementById('formPhoto').reset();
+
+        } else {
+            console.error('Erreur lors de l\'ajout du projet:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Erreur de réseau:', error);
+    }
+}
+
+document.getElementById('formPhoto').addEventListener('submit', function(event) {
+    event.preventDefault(); // Empêcher le formulaire de recharger la page
+    AjoutPhoto();
+});
